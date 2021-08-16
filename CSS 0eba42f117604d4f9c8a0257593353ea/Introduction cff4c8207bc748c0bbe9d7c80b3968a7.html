@@ -1,0 +1,637 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Introduction</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="cff4c820-7bc7-48c0-bbe9-d7c80b3968a7" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⁉️</span></div><h1 class="page-title">Introduction</h1></header><div class="page-body"><h1 id="1082207b-ba30-47bb-bf29-605bde170966" class=""><strong>CSS ⇒ Cascading Style Sheet is used to apply styles (ex., font, colors, padding, border, margin) to HTML elements.</strong></h1><figure id="0ef85b80-4945-4f0d-ba36-61751198f68c" class="image"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Untitled.png"><img style="width:653px" src="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Untitled.png"/></a></figure><h2 id="4d89675b-06bc-4a76-a412-3f19c258daf5" class="">1) CSS to be used with HTML to make the result.</h2><h2 id="f44d220b-a787-4ef3-b363-d387f8c655b6" class="">2) CSS alone has no effect.</h2><h3 id="788cdfde-206f-4dd8-a962-b0d170c1610c" class="">Ex.HTML = Like Car with accessories but without painting and polished (semi furnished).</h3><h3 id="5d294479-81f8-48e7-8216-8019c9f0fd3f" class="">HTML + CSS = Like Car with accessories, painting and polished (full furnished).</h3><h2 id="9ff0d59e-3e66-4593-aa48-e147c11deea2" class="">3) But HTML can be used without CSS.</h2><figure id="b2098b55-2f36-4eb5-8373-20c4c42c8922" class="image"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Untitled%201.png"><img style="width:843px" src="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Untitled%201.png"/></a></figure><hr id="7a0174eb-1ce0-41fc-87dd-af4a851fdf35"/><figure id="fd1b7412-5c07-4311-b68b-50f812db020a" class="image"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Untitled%202.png"><img style="width:672px" src="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Untitled%202.png"/></a></figure><hr id="ef972d77-bf44-4c32-9688-4c6207508810"/><h1 id="3696677f-af5d-4ba4-a830-1e9f0132c341" class="block-color-orange">Simple Selectors</h1><p id="ea6d8ae5-cbbe-47bf-9f6d-c793c5812610" class=""><span style="border-bottom:0.05em solid"><strong>Select elements based on (element name, id, class)</strong></span></p><h2 id="df899d4e-5285-4e9f-9789-18caadaad663" class="">.class</h2><h2 id="e7bb5c24-ca7d-4c27-b36d-f83462ab537b" class="">#id</h2><h2 id="b6089e3d-ec31-40ba-8f5a-aa36b273b497" class="">element</h2><h1 id="a06880b3-c048-46a7-a805-6d8006b3b745" class="block-color-orange">Combinators Selectors</h1><p id="867a489b-753f-4ee2-b628-c784add5d4da" class=""><span style="border-bottom:0.05em solid"><strong>A combinator is something that explains the relationship between the selectors.</strong></span></p><h1 id="031c8dbe-7f9e-4602-a95d-944c6b44ee0e" class="">Descendant Selector</h1><p id="fb6e6123-e40d-4ec4-a211-eea6ee04adfb" class="">The descendant selector matches all elements that are descendants of a specified element.</p><hr id="20ffc3c9-0d7c-43a8-9a44-7f07c82a78de"/><h1 id="d318e873-c8fe-4376-b777-b892f981f2a5" class="">Child Selector (&gt;)</h1><p id="8d6fc417-8c6c-441a-9c64-88c72cdd9568" class="">The child selector selects all elements that are the children of a specified element.</p><hr id="370ac7f3-7b1f-4724-b6f7-c05b4f6c5a8e"/><h1 id="504e6746-291a-4381-b288-2bb78ebf91c9" class="">Adjacent Sibling Selector (+)</h1><p id="3efcc055-1394-4629-8201-6fbd73927b8c" class="">The adjacent sibling selector is used to select an element that is directly after another specific element.</p><p id="eb1b1ae7-481b-4b59-ba9c-90f09c0445c2" class="">Sibling elements must have the same parent element, and &quot;adjacent&quot; means &quot;immediately following&quot;.</p><hr id="4215a197-63ce-48f8-abb4-0cbe6c6a075a"/><h1 id="ab909ee5-cc76-4c67-9429-27415c75ecfc" class="">General Sibling Selector (~)</h1><p id="6f027f67-f45e-4075-883c-fbe3a96024d9" class="">The general sibling selector selects all elements that are next siblings of a specified element.</p><hr id="5a83938d-7d5e-47e0-89cb-bf945c82d44c"/><h1 id="59982f25-7abe-4644-b4cd-08601dcea79b" class="block-color-orange">What are Pseudo-classes (Selectors)?</h1><p id="ca244e5a-1a7e-48c4-abeb-b7c7bcc209d6" class=""><strong>A pseudo-class is used to define a special state of an element.</strong></p><p id="6e141678-8ef6-4d16-b4e7-66807bd5d489" class=""><strong>Example: - a:hover, div:nth-child()</strong></p><ul id="336235b3-763a-4022-872b-fb42268359a5" class="toggle"><li><details open=""><summary>All CSS Pseudo Classes</summary><div id="6a37e960-b2ba-49da-ab17-e6835588279f" class="collection-content"><h4 class="collection-title">List of Pseudo Classes</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Selector</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Example</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Example description</th></tr></thead><tbody><tr id="c39ba0b7-a402-41ef-be82-8bf84288837c"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_active.asp">:active</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/a%20active%20c39ba0b7a40241efbe828bf84288837c.html">a:active</a></td><td class="cell-lcwT">Selects the active link</td></tr><tr id="cc3664ae-00a0-4f3e-872f-9ff61f4b5652"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_checked.asp">:checked</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20checked%20cc3664ae00a04f3e872f9ff61f4b5652.html">input:checked</a></td><td class="cell-lcwT">Selects every checked &lt;input&gt; element</td></tr><tr id="6a36c64c-eb93-4be4-b86b-447d74fb1e1c"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_disabled.asp">:disabled</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20disabled%206a36c64ceb934be4b86b447d74fb1e1c.html">input:disabled</a></td><td class="cell-lcwT">Selects every disabled &lt;input&gt; element</td></tr><tr id="0982ba8c-0b9d-4fa0-b77f-5ad820cd58cb"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_empty.asp">:empty</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20empty%200982ba8c0b9d4fa0b77f5ad820cd58cb.html">p:empty</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element that has no children</td></tr><tr id="cee16552-a9b9-40a1-b89f-a57cb057ed3e"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_enabled.asp">:enabled</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20enabled%20cee16552a9b940a1b89fa57cb057ed3e.html">input:enabled</a></td><td class="cell-lcwT">Selects every enabled &lt;input&gt; element</td></tr><tr id="6de93280-3cf5-4b52-acc2-a0168b0b32ca"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_firstchild.asp">:first-child</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20first-child%206de932803cf54b52acc2a0168b0b32ca.html">p:first-child</a></td><td class="cell-lcwT">Selects every &lt;p&gt; elements that is the first child of its parent</td></tr><tr id="39bc95a2-9e68-483e-aad7-6d00f9bc815b"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_first-of-type.asp">:first-of-type</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20first-of-type%2039bc95a29e68483eaad76d00f9bc815b.html">p:first-of-type</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element that is the first &lt;p&gt; element of its parent</td></tr><tr id="0f1c88cb-2daf-4ebb-9670-5c4ead87201a"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_focus.asp">:focus</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20focus%200f1c88cb2daf4ebb96705c4ead87201a.html">input:focus</a></td><td class="cell-lcwT">Selects the &lt;input&gt; element that has focus</td></tr><tr id="1ea0b21a-9d61-48b0-989c-8efa8d930349"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_hover.asp">:hover</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/a%20hover%201ea0b21a9d6148b0989c8efa8d930349.html">a:hover</a></td><td class="cell-lcwT">Selects links on mouse over</td></tr><tr id="c354c8e7-badd-43f5-a8ca-31dc5fce653b"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_in-range.asp">:in-range</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20in-range%20c354c8e7badd43f5a8ca31dc5fce653b.html">input:in-range</a></td><td class="cell-lcwT">Selects &lt;input&gt; elements with a value within a specified range</td></tr><tr id="f92367bb-47b0-4a5f-8e56-2086cfaeae15"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_invalid.asp">:invalid</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20invalid%20f92367bb47b04a5f8e562086cfaeae15.html">input:invalid</a></td><td class="cell-lcwT">Selects all &lt;input&gt; elements with an invalid value</td></tr><tr id="5fde66dd-614e-46d5-8ef1-657ee37bbb8d"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_lang.asp">:lang(</a><a href="https://www.w3schools.com/cssref/sel_lang.asp">language</a><a href="https://www.w3schools.com/cssref/sel_lang.asp">)</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20lang(it)%205fde66dd614e46d58ef1657ee37bbb8d.html">p:lang(it)</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element with a lang attribute value starting with &quot;it&quot;</td></tr><tr id="613affe3-0ce9-45db-87ca-4cefab28dc4b"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_last-child.asp">:last-child</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20last-child%20613affe30ce945db87ca4cefab28dc4b.html">p:last-child</a></td><td class="cell-lcwT">Selects every &lt;p&gt; elements that is the last child of its parent</td></tr><tr id="e62cec58-9e89-4601-a002-8fb998c527bd"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_last-of-type.asp">:last-of-type</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20last-of-type%20e62cec589e894601a0028fb998c527bd.html">p:last-of-type</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element that is the last &lt;p&gt; element of its parent</td></tr><tr id="1a7cba03-f3f3-4888-954a-dce5d744f7ff"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_link.asp">:link</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/a%20link%201a7cba03f3f34888954adce5d744f7ff.html">a:link</a></td><td class="cell-lcwT">Selects all unvisited links</td></tr><tr id="470ffef1-6bdc-4267-8c10-339ea007b03b"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_not.asp">:not(selector)</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/not(p)%20470ffef16bdc42678c10339ea007b03b.html">:not(p)</a></td><td class="cell-lcwT">Selects every element that is not a &lt;p&gt; element</td></tr><tr id="045c5291-e2c9-4231-9c93-9f455ae56923"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_nth-child.asp">:nth-child(n)</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20nth-child(2)%20045c5291e2c942319c939f455ae56923.html">p:nth-child(2)</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element that is the second child of its parent</td></tr><tr id="36287a99-37df-4434-b218-41684020b28d"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_nth-last-child.asp">:nth-last-child(n)</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20nth-last-child(2)%2036287a9937df4434b21841684020b28d.html">p:nth-last-child(2)</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element that is the second child of its parent, counting from the last child</td></tr><tr id="de03533f-9c78-469c-abb4-603c26a8400c"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_nth-last-of-type.asp">:nth-last-of-type(n)</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20nth-last-of-type(2)%20de03533f9c78469cabb4603c26a8400c.html">p:nth-last-of-type(2)</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting from the last child</td></tr><tr id="293d51be-0cc6-448f-9ab1-5594d47d3346"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_nth-of-type.asp">:nth-of-type(n)</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20nth-of-type(2)%20293d51be0cc6448f9ab15594d47d3346.html">p:nth-of-type(2)</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent</td></tr><tr id="e9af60c5-206e-4738-9a42-b6dfcaa84d1b"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_only-of-type.asp">:only-of-type</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20only-of-type%20e9af60c5206e47389a42b6dfcaa84d1b.html">p:only-of-type</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its parent</td></tr><tr id="4fda7de3-7d78-43cc-bc23-c1d45af55945"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_only-child.asp">:only-child</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/p%20only-child%204fda7de37d7843ccbc23c1d45af55945.html">p:only-child</a></td><td class="cell-lcwT">Selects every &lt;p&gt; element that is the only child of its parent</td></tr><tr id="1b08e5af-6db2-4ad5-b7ea-b33c636814e3"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_optional.asp">:optional</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20optional%201b08e5af6db24ad5b7eab33c636814e3.html">input:optional</a></td><td class="cell-lcwT">Selects &lt;input&gt; elements with no &quot;required&quot; attribute</td></tr><tr id="194b13ff-5ca8-4246-a46a-e5c9dd09d68c"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_out-of-range.asp">:out-of-range</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20out-of-range%20194b13ff5ca84246a46ae5c9dd09d68c.html">input:out-of-range</a></td><td class="cell-lcwT">Selects &lt;input&gt; elements with a value outside a specified range</td></tr><tr id="92f73612-f6bf-4b5c-b5dc-e4e59109952a"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_read-only.asp">:read-only</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20read-only%2092f73612f6bf4b5cb5dce4e59109952a.html">input:read-only</a></td><td class="cell-lcwT">Selects &lt;input&gt; elements with a &quot;readonly&quot; attribute specified</td></tr><tr id="f82bfd97-689a-4045-9483-3436c3ffc78b"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_read-write.asp">:read-write</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20read-write%20f82bfd97689a404594833436c3ffc78b.html">input:read-write</a></td><td class="cell-lcwT">Selects &lt;input&gt; elements with no &quot;readonly&quot; attribute</td></tr><tr id="c9a4d012-a295-4ff5-a748-8c7d384b3694"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_required.asp">:required</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20required%20c9a4d012a2954ff5a7488c7d384b3694.html">input:required</a></td><td class="cell-lcwT">Selects &lt;input&gt; elements with a &quot;required&quot; attribute specified</td></tr><tr id="9911730a-332b-4696-8c70-fb4747018f6c"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_root.asp">:root</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/root%209911730a332b46968c70fb4747018f6c.html">root</a></td><td class="cell-lcwT">Selects the document&#x27;s root element</td></tr><tr id="a11d3e17-c902-499e-9b07-a4afdc107cf4"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_target.asp">:target</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/#news%20target%20a11d3e17c902499e9b07a4afdc107cf4.html">#news:target</a></td><td class="cell-lcwT">Selects the current active #news element (clicked on a URL containing that anchor name)</td></tr><tr id="4b64c2b4-0792-46ad-8185-9f1e839d8af8"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_valid.asp">:valid</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/input%20valid%204b64c2b4079246ad81859f1e839d8af8.html">input:valid</a></td><td class="cell-lcwT">Selects all &lt;input&gt; elements with a valid value</td></tr><tr id="d62e5782-f73e-43db-93ec-ffdf735744a0"><td class="cell-SmaO"><a href="https://www.w3schools.com/cssref/sel_visited.asp">:visited</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Classes%206a37e960b2ba49daab17e6835588279f/a%20visited%20d62e5782f73e43db93ecffdf735744a0.html">a:visited</a></td><td class="cell-lcwT">Selects all visited links</td></tr></tbody></table></div></details></li></ul><hr id="feec16fc-019a-45f2-9213-b83698360adf"/><h1 id="5e354f3a-3c70-43c8-a8a5-b7757df62d86" class="block-color-orange">What are Pseudo-Elements (Selectors)?</h1><p id="1074696d-d727-4458-bc6e-61bb60898653" class="">A CSS pseudo-element is used to style specified parts of an element.</p><p id="2bb2fe9b-bf69-4b6e-8936-ad4fe108935c" class="">For example, it can be used to:</p><ul id="b63a92f8-3a2b-463e-9a64-f62e9d6915b5" class="bulleted-list"><li>Style the first letter, or line, of an element</li></ul><ul id="80c7ac9d-9392-4175-a5dc-8718712ec731" class="bulleted-list"><li>Insert content before, or after, the content of an element</li></ul><ul id="23349d13-44f8-45f6-9615-d9d060b9514f" class="toggle"><li><details open=""><summary>All CSS Pseudo Elements</summary><div id="6ffab1c7-be7b-439e-83cf-052b309f60b6" class="collection-content"><h4 class="collection-title">List of Pseudo Elements</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Selector</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Example</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Example description</th></tr></thead><tbody><tr id="010c0165-afcd-4171-8e5c-66897b239137"><td class="cell-rH\j"><a href="https://www.w3schools.com/cssref/sel_after.asp">::after</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Elements%206ffab1c7be7b439e83cf052b309f60b6/p%20after%20010c0165afcd41718e5c66897b239137.html">p::after</a></td><td class="cell-=Jmp">Insert something after the content of each &lt;p&gt; element</td></tr><tr id="2592a166-053d-408c-804c-55bfc1c6fa0e"><td class="cell-rH\j"><a href="https://www.w3schools.com/cssref/sel_before.asp">::before</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Elements%206ffab1c7be7b439e83cf052b309f60b6/p%20before%202592a166053d408c804c55bfc1c6fa0e.html">p::before</a></td><td class="cell-=Jmp">Insert something before the content of each &lt;p&gt; element</td></tr><tr id="10dc9702-41e3-42f3-b58d-911233fb4572"><td class="cell-rH\j"><a href="https://www.w3schools.com/cssref/sel_firstletter.asp">::first-letter</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Elements%206ffab1c7be7b439e83cf052b309f60b6/p%20first-letter%2010dc970241e342f3b58d911233fb4572.html">p::first-letter</a></td><td class="cell-=Jmp">Selects the first letter of each &lt;p&gt; element</td></tr><tr id="d9e9e8dc-d8d5-4026-b51e-8987a302829a"><td class="cell-rH\j"><a href="https://www.w3schools.com/cssref/sel_firstline.asp">::first-line</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Elements%206ffab1c7be7b439e83cf052b309f60b6/p%20first-line%20d9e9e8dcd8d54026b51e8987a302829a.html">p::first-line</a></td><td class="cell-=Jmp">Selects the first line of each &lt;p&gt; element</td></tr><tr id="2a573e4a-5a23-4c8f-acd2-78cca5aa48f8"><td class="cell-rH\j"><a href="https://www.w3schools.com/cssref/sel_marker.asp">::marker</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Elements%206ffab1c7be7b439e83cf052b309f60b6/marker%202a573e4a5a234c8facd278cca5aa48f8.html">::marker</a></td><td class="cell-=Jmp">Selects the markers of list items</td></tr><tr id="c86ecc48-1f56-4c28-81fb-8eff0b6884e7"><td class="cell-rH\j"><a href="https://www.w3schools.com/cssref/sel_selection.asp">::selection</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/List%20of%20Pseudo%20Elements%206ffab1c7be7b439e83cf052b309f60b6/p%20selection%20c86ecc481f564c2881fb8eff0b6884e7.html">p::selection</a></td><td class="cell-=Jmp">Selects the portion of an element that is selected by a user</td></tr></tbody></table></div></details></li></ul><hr id="f245af74-54e7-411a-af04-6050575dc795"/><h1 id="e68c8fda-4103-4591-9990-13364d8460e4" class="block-color-orange">What are CSS [attribute] Selector</h1><p id="9ab55de8-6f0e-41e0-aadd-4f48278db4b6" class="">The <code>[attribute]</code> selector is used to select elements with a specified attribute.</p><ul id="84dc00e4-94f3-401d-9df0-62daf07f2e9e" class="toggle"><li><details open=""><summary>All CSS Attribute Selectors</summary><div id="8c26c608-4d37-49af-89ee-f87e30f796c0" class="collection-content"><h4 class="collection-title">Attribute Selectors</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Selector</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Example</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Example description</th></tr></thead><tbody><tr id="e6d329e1-31e0-4de0-ae6a-69c87b1720ce"><td class="cell-Q?t]"><a href="https://www.w3schools.com/cssref/sel_attribute.asp">[</a><a href="https://www.w3schools.com/cssref/sel_attribute.asp">attribute</a><a href="https://www.w3schools.com/cssref/sel_attribute.asp">]</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Attribute%20Selectors%208c26c6084d3749af89eef87e30f796c0/%5Btarget%5D%20e6d329e131e04de0ae6a69c87b1720ce.html">[target]</a></td><td class="cell-bG[t">Selects all elements with a target attribute</td></tr><tr id="65aee59f-2eed-4078-b06b-50052c3a766b"><td class="cell-Q?t]"><a href="https://www.w3schools.com/cssref/sel_attribute_value.asp">[</a><a href="https://www.w3schools.com/cssref/sel_attribute_value.asp">attribute</a><a href="https://www.w3schools.com/cssref/sel_attribute_value.asp">=</a><a href="https://www.w3schools.com/cssref/sel_attribute_value.asp">value</a><a href="https://www.w3schools.com/cssref/sel_attribute_value.asp">]</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Attribute%20Selectors%208c26c6084d3749af89eef87e30f796c0/%5Btarget=_blank%5D%2065aee59f2eed4078b06b50052c3a766b.html">[target=_blank]</a></td><td class="cell-bG[t">Selects all elements with target=&quot;_blank&quot;</td></tr><tr id="51712706-a6cb-428f-afbf-eaebcb3b3d80"><td class="cell-Q?t]"><a href="https://www.w3schools.com/cssref/sel_attribute_value_contains.asp">[</a><a href="https://www.w3schools.com/cssref/sel_attribute_value_contains.asp">attribute</a><a href="https://www.w3schools.com/cssref/sel_attribute_value_contains.asp">~=</a><a href="https://www.w3schools.com/cssref/sel_attribute_value_contains.asp">value</a><a href="https://www.w3schools.com/cssref/sel_attribute_value_contains.asp">]</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Attribute%20Selectors%208c26c6084d3749af89eef87e30f796c0/%5Btitle~=flower%5D%2051712706a6cb428fafbfeaebcb3b3d80.html">[title~=flower]</a></td><td class="cell-bG[t">Selects all elements with a title attribute containing the word &quot;flower&quot;</td></tr><tr id="0b5d0500-a775-42db-890a-f9d7550620d2"><td class="cell-Q?t]"><a href="https://www.w3schools.com/cssref/sel_attribute_value_lang.asp">[</a><a href="https://www.w3schools.com/cssref/sel_attribute_value_lang.asp">attribute</a><a href="https://www.w3schools.com/cssref/sel_attribute_value_lang.asp">|=</a><a href="https://www.w3schools.com/cssref/sel_attribute_value_lang.asp">value</a><a href="https://www.w3schools.com/cssref/sel_attribute_value_lang.asp">]</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Attribute%20Selectors%208c26c6084d3749af89eef87e30f796c0/%5Blang%20=en%5D%200b5d0500a77542db890af9d7550620d2.html">[lang|=en]</a></td><td class="cell-bG[t">Selects all elements with a lang attribute value starting with &quot;en&quot;</td></tr><tr id="84932a1c-73b8-4627-af79-60f4ae9c7789"><td class="cell-Q?t]"><a href="https://www.w3schools.com/cssref/sel_attr_begin.asp">[</a><a href="https://www.w3schools.com/cssref/sel_attr_begin.asp">attribute</a><a href="https://www.w3schools.com/cssref/sel_attr_begin.asp">^=</a><a href="https://www.w3schools.com/cssref/sel_attr_begin.asp">value</a><a href="https://www.w3schools.com/cssref/sel_attr_begin.asp">]</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Attribute%20Selectors%208c26c6084d3749af89eef87e30f796c0/a%5Bhref%5E=%20https%20%5D%2084932a1c73b84627af7960f4ae9c7789.html">a[href^=&quot;https&quot;]</a></td><td class="cell-bG[t">Selects every &lt;a&gt; element whose href attribute value begins with &quot;https&quot;</td></tr><tr id="ef02c906-f54b-4b62-a2f6-9ba32c873e84"><td class="cell-Q?t]"><a href="https://www.w3schools.com/cssref/sel_attr_end.asp">[</a><a href="https://www.w3schools.com/cssref/sel_attr_end.asp">attribute</a><a href="https://www.w3schools.com/cssref/sel_attr_end.asp">$=</a><a href="https://www.w3schools.com/cssref/sel_attr_end.asp">value</a><a href="https://www.w3schools.com/cssref/sel_attr_end.asp">]</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Attribute%20Selectors%208c26c6084d3749af89eef87e30f796c0/a%5Bhref$=%20pdf%20%5D%20ef02c906f54b4b62a2f69ba32c873e84.html">a[href$=&quot;.pdf&quot;]</a></td><td class="cell-bG[t">Selects every &lt;a&gt; element whose href attribute value ends with &quot;.pdf&quot;</td></tr><tr id="498ec2f0-3264-4ab8-96ec-7bfea6210a1f"><td class="cell-Q?t]"><a href="https://www.w3schools.com/cssref/sel_attr_contain.asp">[</a><a href="https://www.w3schools.com/cssref/sel_attr_contain.asp">attribute</a><a href="https://www.w3schools.com/cssref/sel_attr_contain.asp">*=</a><a href="https://www.w3schools.com/cssref/sel_attr_contain.asp">value</a><a href="https://www.w3schools.com/cssref/sel_attr_contain.asp">]</a></td><td class="cell-title"><a href="Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7/Attribute%20Selectors%208c26c6084d3749af89eef87e30f796c0/a%5Bhref%20=%20w3schools%20%5D%20498ec2f032644ab896ec7bfea6210a1f.html">a[href*=&quot;w3schools&quot;]</a></td><td class="cell-bG[t">Selects every &lt;a&gt; element whose href attribute value contains the substring &quot;w3schools&quot;</td></tr></tbody></table></div></details></li></ul><hr id="46c8d827-3c06-4381-a1c8-f0c9c004aecd"/><p id="c6e4708e-041d-4f00-a067-7c6b089f176b" class="">
+</p></div></article></body></html>
