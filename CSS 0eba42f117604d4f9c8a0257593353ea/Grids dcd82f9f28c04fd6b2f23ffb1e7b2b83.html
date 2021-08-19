@@ -1,637 +1,250 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Grids</title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-}
-.highlight-gray {
-	color: rgb(155,154,151);
-}
-.highlight-brown {
-	color: rgb(100,71,58);
-}
-.highlight-orange {
-	color: rgb(217,115,13);
-}
-.highlight-yellow {
-	color: rgb(223,171,1);
-}
-.highlight-teal {
-	color: rgb(15,123,108);
-}
-.highlight-blue {
-	color: rgb(11,110,153);
-}
-.highlight-purple {
-	color: rgb(105,64,165);
-}
-.highlight-pink {
-	color: rgb(173,26,114);
-}
-.highlight-red {
-	color: rgb(224,62,62);
-}
-.highlight-gray_background {
-	background: rgb(235,236,237);
-}
-.highlight-brown_background {
-	background: rgb(233,229,227);
-}
-.highlight-orange_background {
-	background: rgb(250,235,221);
-}
-.highlight-yellow_background {
-	background: rgb(251,243,219);
-}
-.highlight-teal_background {
-	background: rgb(221,237,234);
-}
-.highlight-blue_background {
-	background: rgb(221,235,241);
-}
-.highlight-purple_background {
-	background: rgb(234,228,242);
-}
-.highlight-pink_background {
-	background: rgb(244,223,235);
-}
-.highlight-red_background {
-	background: rgb(251,228,228);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(55, 53, 47, 0.6);
-	fill: rgba(55, 53, 47, 0.6);
-}
-.block-color-brown {
-	color: rgb(100,71,58);
-	fill: rgb(100,71,58);
-}
-.block-color-orange {
-	color: rgb(217,115,13);
-	fill: rgb(217,115,13);
-}
-.block-color-yellow {
-	color: rgb(223,171,1);
-	fill: rgb(223,171,1);
-}
-.block-color-teal {
-	color: rgb(15,123,108);
-	fill: rgb(15,123,108);
-}
-.block-color-blue {
-	color: rgb(11,110,153);
-	fill: rgb(11,110,153);
-}
-.block-color-purple {
-	color: rgb(105,64,165);
-	fill: rgb(105,64,165);
-}
-.block-color-pink {
-	color: rgb(173,26,114);
-	fill: rgb(173,26,114);
-}
-.block-color-red {
-	color: rgb(224,62,62);
-	fill: rgb(224,62,62);
-}
-.block-color-gray_background {
-	background: rgb(235,236,237);
-}
-.block-color-brown_background {
-	background: rgb(233,229,227);
-}
-.block-color-orange_background {
-	background: rgb(250,235,221);
-}
-.block-color-yellow_background {
-	background: rgb(251,243,219);
-}
-.block-color-teal_background {
-	background: rgb(221,237,234);
-}
-.block-color-blue_background {
-	background: rgb(221,235,241);
-}
-.block-color-purple_background {
-	background: rgb(234,228,242);
-}
-.block-color-pink_background {
-	background: rgb(244,223,235);
-}
-.block-color-red_background {
-	background: rgb(251,228,228);
-}
-.select-value-color-default { background-color: rgba(206,205,202,0.5); }
-.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
-.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
-.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
-.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
-.select-value-color-green { background-color: rgba(0,135,107,0.2); }
-.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
-.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
-.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
-.select-value-color-red { background-color: rgba(255,0,26,0.2); }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-	
-</style></head><body><article id="dcd82f9f-28c0-4fd6-b2f2-3ffb1e7b2b83" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/img_16798.png"/></div><h1 class="page-title">Grids</h1></header><div class="page-body"><h2 id="05dda721-fdc7-4c9e-879e-55b1c71b574a" class="">CSS Grid Layout provides a two dimensional layout system, controlling layout in rows and columns.</h2><div id="1a3026a6-38a8-4d1d-a280-2bda6e19d715" class="column-list"><div id="f125c213-7a9d-4b8d-bbf5-811dfcdd9e48" style="width:50%" class="column"><figure id="92b812cd-193e-4462-ab38-e9e20f31bb2b" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled.png"><img style="width:608px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled.png"/></a></figure></div><div id="892c9e28-a2b6-493b-b27b-a5d13285b231" style="width:50%" class="column"><figure id="98fa37fb-b416-4182-9d31-d44234cf5088" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%201.png"><img style="width:602px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%201.png"/></a></figure></div></div><div id="fe2d533a-6d9e-458d-81b7-0697f9b6103c" class="column-list"><div id="6cce0f3a-ca2f-4ad6-88db-a0f08f54ad35" style="width:50%" class="column"><figure id="64e717a2-9748-4ba7-b439-e14b73792aea" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%202.png"><img style="width:606px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%202.png"/></a></figure></div><div id="c4194305-8dca-4b10-9fdb-dd824d03ebe0" style="width:50%" class="column"><figure id="22cf9f57-c529-4542-ac1d-7631d0e746f7" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%203.png"><img style="width:614px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%203.png"/></a></figure></div></div><figure id="ec5a0049-daff-4f10-a112-bbb9e8df433a" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%204.png"><img style="width:432px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%204.png"/></a></figure><div id="66b8295a-4174-44ca-bcc4-0e3287074ab2" class="column-list"><div id="559955f7-8cce-46db-8c52-b7920b74fa7b" style="width:50%" class="column"><figure id="c960fb58-ad39-4e12-af36-4266282a7060" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%205.png"><img style="width:336px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%205.png"/></a></figure></div><div id="eb6d6cb7-d6c8-4372-8810-91eb44341af2" style="width:50%" class="column"><figure id="ff51bee3-7fc2-4c21-b558-a126be010bc5" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%206.png"><img style="width:336px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%206.png"/></a></figure></div></div><div id="8c564222-5571-41cd-bca4-5d09deec3fc5" class="column-list"><div id="02a45a38-f977-4e16-a2a0-03e7902ede9d" style="width:50%" class="column"><figure id="d516bbba-9866-4fe8-bebb-92c4c10167c9" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%207.png"><img style="width:336px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%207.png"/></a></figure></div><div id="0e69ad9e-2e3f-446b-93ad-d20b812cb594" style="width:50%" class="column"><figure id="8c7e5ade-af79-455b-9a15-a39be070fcc4" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%208.png"><img style="width:384px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%208.png"/></a></figure></div></div><div id="fe3f152a-f88b-4e3d-8416-33a6b4495a9b" class="column-list"><div id="c3acb1d6-604e-457e-912a-509362f529b6" style="width:50%" class="column"><figure id="ac0aa5f9-ac0b-4204-b34d-a22b07ecd6ab" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%209.png"><img style="width:336px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%209.png"/></a></figure></div><div id="b7072eb6-a932-4f7b-834f-14ee4829b3ec" style="width:50%" class="column"><figure id="d0792143-32c5-45e3-bac1-8cf9ff90ca09" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%2010.png"><img style="width:314px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%2010.png"/></a></figure></div></div><figure id="a4b2881e-e307-4f87-a4e6-b9e911832581" class="image"><a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%2011.png"><img style="width:384px" src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%2011.png"/></a></figure><hr id="9d285222-a385-4df4-b68f-c2d736c14a2f"/><h1 id="2da64f6d-8be8-4592-b531-51bfc0ebe491" class="block-color-red">Units </h1><h2 id="23e271ba-bc5d-4519-b1b1-0befab853b71" class="block-color-orange">min-content</h2><p id="ecc6c405-74f3-44a0-819c-1984378a9000" class="">The min-content keyword will make a track as small as it can be without the track content overflowing. Changing the example grid layout to have three column tracks all at min-content size will mean they become as narrow as the longest word in the track.</p><h2 id="4ba60332-de8e-4dfc-b5c5-1c7cafb974c2" class="block-color-orange">max-content</h2><p id="7c897763-ca5a-470d-82ff-37ea5bb8beb2" class="">The max-content keyword has the opposite effect. The track will become as wide enough for all of the content to display in one long unbroken string. This might cause overflows as the string will not wrap.</p><h2 id="bb734886-2040-445d-a3a4-69b4075d9247" class="block-color-orange">fit-content()</h2><p id="ee1105b7-369e-449b-a731-fae9d75fe109" class="">The fit-content() function acts like max-content at first. However, once the track reaches the size that you pass into the function, the content starts to wrap. So fit-content(10em) will create a track that is less than 10em, if the max-content size is less than 10em, but never larger than 10em.</p><h2 id="26ebe31f-4ea5-4925-ad89-0381a72dca29" class="block-color-orange">Fr</h2><p id="060bdd3f-2ba3-4e08-ae1f-4ce7c1a630ba" class="">fr unit, a flexible length which describes a share of the available space in the grid container.</p><p id="5d13cb39-284f-4e53-819e-ec0355407b60" class="">The fr unit works in a similar way to using flex: auto in flexbox. It distributes space after the items have been laid out.</p><h1 id="703f70c8-aaf3-4712-a91a-4c18c82306b3" class="block-color-red">repeat(number of columns, size of the columns)</h1><p id="45cb61fc-7e91-433d-8fb9-d601b0ab0064" class="">Example : - repeat(3, 200px)</p><p id="435e1fa6-f8c8-4f35-8db4-2ef148b74c79" class="">
-</p></div></article></body></html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Grids</title>
+    <link rel="stylesheet" href="grids.css">
+  </head>
+  <body>
+    <article id="dcd82f9f-28c0-4fd6-b2f2-3ffb1e7b2b83" class="page sans">
+      <header>
+        <div class="page-header-icon undefined">
+          <img
+            class="icon"
+            src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/img_16798.png"
+          />
+        </div>
+        <h1 class="page-title">Grids</h1>
+      </header>
+      <div class="page-body">
+        <h2 id="05dda721-fdc7-4c9e-879e-55b1c71b574a" class="">
+          CSS Grid Layout provides a two dimensional layout system, controlling
+          layout in rows and columns.
+        </h2>
+        <div id="1a3026a6-38a8-4d1d-a280-2bda6e19d715" class="column-list">
+          <div
+            id="f125c213-7a9d-4b8d-bbf5-811dfcdd9e48"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="92b812cd-193e-4462-ab38-e9e20f31bb2b" class="image">
+              <a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled.png"
+                ><img
+                  style="width: 608px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled.png"
+              /></a>
+            </figure>
+          </div>
+          <div
+            id="892c9e28-a2b6-493b-b27b-a5d13285b231"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="98fa37fb-b416-4182-9d31-d44234cf5088" class="image">
+              <a
+                href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%201.png"
+                ><img
+                  style="width: 602px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%201.png"
+              /></a>
+            </figure>
+          </div>
+        </div>
+        <div id="fe2d533a-6d9e-458d-81b7-0697f9b6103c" class="column-list">
+          <div
+            id="6cce0f3a-ca2f-4ad6-88db-a0f08f54ad35"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="64e717a2-9748-4ba7-b439-e14b73792aea" class="image">
+              <a
+                href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%202.png"
+                ><img
+                  style="width: 606px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%202.png"
+              /></a>
+            </figure>
+          </div>
+          <div
+            id="c4194305-8dca-4b10-9fdb-dd824d03ebe0"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="22cf9f57-c529-4542-ac1d-7631d0e746f7" class="image">
+              <a
+                href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%203.png"
+                ><img
+                  style="width: 614px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%203.png"
+              /></a>
+            </figure>
+          </div>
+        </div>
+        <figure id="ec5a0049-daff-4f10-a112-bbb9e8df433a" class="image">
+          <a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%204.png"
+            ><img
+              style="width: 432px"
+              src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%204.png"
+          /></a>
+        </figure>
+        <div id="66b8295a-4174-44ca-bcc4-0e3287074ab2" class="column-list">
+          <div
+            id="559955f7-8cce-46db-8c52-b7920b74fa7b"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="c960fb58-ad39-4e12-af36-4266282a7060" class="image">
+              <a
+                href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%205.png"
+                ><img
+                  style="width: 336px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%205.png"
+              /></a>
+            </figure>
+          </div>
+          <div
+            id="eb6d6cb7-d6c8-4372-8810-91eb44341af2"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="ff51bee3-7fc2-4c21-b558-a126be010bc5" class="image">
+              <a
+                href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%206.png"
+                ><img
+                  style="width: 336px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%206.png"
+              /></a>
+            </figure>
+          </div>
+        </div>
+        <div id="8c564222-5571-41cd-bca4-5d09deec3fc5" class="column-list">
+          <div
+            id="02a45a38-f977-4e16-a2a0-03e7902ede9d"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="d516bbba-9866-4fe8-bebb-92c4c10167c9" class="image">
+              <a
+                href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%207.png"
+                ><img
+                  style="width: 336px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%207.png"
+              /></a>
+            </figure>
+          </div>
+          <div
+            id="0e69ad9e-2e3f-446b-93ad-d20b812cb594"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="8c7e5ade-af79-455b-9a15-a39be070fcc4" class="image">
+              <a
+                href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%208.png"
+                ><img
+                  style="width: 384px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%208.png"
+              /></a>
+            </figure>
+          </div>
+        </div>
+        <div id="fe3f152a-f88b-4e3d-8416-33a6b4495a9b" class="column-list">
+          <div
+            id="c3acb1d6-604e-457e-912a-509362f529b6"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="ac0aa5f9-ac0b-4204-b34d-a22b07ecd6ab" class="image">
+              <a
+                href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%209.png"
+                ><img
+                  style="width: 336px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%209.png"
+              /></a>
+            </figure>
+          </div>
+          <div
+            id="b7072eb6-a932-4f7b-834f-14ee4829b3ec"
+            style="width: 50%"
+            class="column"
+          >
+            <figure id="d0792143-32c5-45e3-bac1-8cf9ff90ca09" class="image">
+              <a
+                href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%2010.png"
+                ><img
+                  style="width: 314px"
+                  src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%2010.png"
+              /></a>
+            </figure>
+          </div>
+        </div>
+        <figure id="a4b2881e-e307-4f87-a4e6-b9e911832581" class="image">
+          <a href="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%2011.png"
+            ><img
+              style="width: 384px"
+              src="Grids%20dcd82f9f28c04fd6b2f23ffb1e7b2b83/Untitled%2011.png"
+          /></a>
+        </figure>
+        <hr id="9d285222-a385-4df4-b68f-c2d736c14a2f" />
+        <h1 id="2da64f6d-8be8-4592-b531-51bfc0ebe491" class="block-color-red">
+          Units
+        </h1>
+        <h2
+          id="23e271ba-bc5d-4519-b1b1-0befab853b71"
+          class="block-color-orange"
+        >
+          min-content
+        </h2>
+        <p id="ecc6c405-74f3-44a0-819c-1984378a9000" class="">
+          The min-content keyword will make a track as small as it can be
+          without the track content overflowing. Changing the example grid
+          layout to have three column tracks all at min-content size will mean
+          they become as narrow as the longest word in the track.
+        </p>
+        <h2
+          id="4ba60332-de8e-4dfc-b5c5-1c7cafb974c2"
+          class="block-color-orange"
+        >
+          max-content
+        </h2>
+        <p id="7c897763-ca5a-470d-82ff-37ea5bb8beb2" class="">
+          The max-content keyword has the opposite effect. The track will become
+          as wide enough for all of the content to display in one long unbroken
+          string. This might cause overflows as the string will not wrap.
+        </p>
+        <h2
+          id="bb734886-2040-445d-a3a4-69b4075d9247"
+          class="block-color-orange"
+        >
+          fit-content()
+        </h2>
+        <p id="ee1105b7-369e-449b-a731-fae9d75fe109" class="">
+          The fit-content() function acts like max-content at first. However,
+          once the track reaches the size that you pass into the function, the
+          content starts to wrap. So fit-content(10em) will create a track that
+          is less than 10em, if the max-content size is less than 10em, but
+          never larger than 10em.
+        </p>
+        <h2
+          id="26ebe31f-4ea5-4925-ad89-0381a72dca29"
+          class="block-color-orange"
+        >
+          Fr
+        </h2>
+        <p id="060bdd3f-2ba3-4e08-ae1f-4ce7c1a630ba" class="">
+          fr unit, a flexible length which describes a share of the available
+          space in the grid container.
+        </p>
+        <p id="5d13cb39-284f-4e53-819e-ec0355407b60" class="">
+          The fr unit works in a similar way to using flex: auto in flexbox. It
+          distributes space after the items have been laid out.
+        </p>
+        <h1 id="703f70c8-aaf3-4712-a91a-4c18c82306b3" class="block-color-red">
+          repeat(number of columns, size of the columns)
+        </h1>
+        <p id="45cb61fc-7e91-433d-8fb9-d601b0ab0064" class="">
+          Example : - repeat(3, 200px)
+        </p>
+        <p id="435e1fa6-f8c8-4f35-8db4-2ef148b74c79" class=""></p>
+      </div>
+    </article>
+  </body>
+</html>
