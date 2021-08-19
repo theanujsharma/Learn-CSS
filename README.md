@@ -1,7 +1,7 @@
 # Learn-CSS
 
 
-## [Introduction](https://theanujsharma.github.io/Learn-CSS/CSS%200eba42f117604d4f9c8a0257593353ea/Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7.html) :bowtie:
+## [Introduction](https://theanujsharma.github.io/Learn-CSS/CSS%200eba42f117604d4f9c8a0257593353ea/Introduction%20cff4c8207bc748c0bbe9d7c80b3968a7.html)
 
 ## [Block, Inline, and Inline-Block](https://theanujsharma.github.io/Learn-CSS/CSS%200eba42f117604d4f9c8a0257593353ea/Block,%20Inline,%20Inline-Block%203a46a7f70bdb49e593c1145a9d177072.html)
 
